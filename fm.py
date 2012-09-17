@@ -5,9 +5,8 @@ class fieldMap:
         this.m=arcpy.FieldMappings()
         if fc is not None:
             this.m.addTable(fc)
-        this.m.addTable(fc)
         if sfc is not None:
-             this.m.addTable(sfc)
+            this.m.addTable(sfc)
     def renameField(this,oldf,newf):
         fIndex=this.m.findFieldMapIndex(oldF)
         fmap = fm.getFieldMap(fIndex)
