@@ -6,7 +6,10 @@ Because the arcpy field map(ings) object was pissing me off.  Works for 10.0 api
 import the module
 
     import fm
-    myMap = fm.fieldMap(featureClassOrTable[, optionalSecondThing])#make a field map
+    myMap = fm.fieldMap(featureClassOrTable[, optionalSecondThing])
+    #make a field map, technically both are optional
+    myMap = fm.addFC(featureClass)
+    #add a new feature class, hopefully won't need this
     myMap.getMap() #returns the map
     myMap.renameField(oldFieldName,newFieldName) #renames a field
     myMap.rmPre(prefix)
@@ -18,4 +21,4 @@ import the module
     myMap.getInFieldName(outField[, index])
     #gets the input name from the output name defaults to first field
     
-api and whatnot is currently based on what I need to do for myself
+api and whatnot is currently based on what I need to do for myself, techncially both are optional and you can use add
