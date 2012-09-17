@@ -1,8 +1,10 @@
 import arcpy
 
 class fieldMap:
-    def __init__(this,fc,sfc=None):
+    def __init__(this,fc=None,sfc=None):
         this.m=arcpy.FieldMappings()
+        if fc is not None:
+            this.m.addTable(fc)
         this.m.addTable(fc)
         if sfc is not None:
              this.m.addTable(sfc)
