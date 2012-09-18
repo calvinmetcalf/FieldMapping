@@ -19,7 +19,7 @@ class fieldMap:
     def rmPre(this,prefix):
         for n in range(this.m.fieldCount):
             nom =m.fields[n].name
-            if len(nom)>len(prefix) and nom[:len(prefix)] == prefix
+            if len(nom)>len(prefix) and nom[:len(prefix)] == prefix:
                 this.renameField(nom,nom[len(prefix):])
     def getMap(this):
         return this.m
