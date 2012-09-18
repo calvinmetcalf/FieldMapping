@@ -7,7 +7,7 @@ class fieldMap:
             this.addFC(fc)
         if sfc is not None:
             this.addFC(sfc)
-    def addFC(fc):
+    def addFC(this,fc):
         this.m.addTable(fc)
     def renameField(this,oldf,newf):
         fIndex=this.m.findFieldMapIndex(oldF)
