@@ -9,7 +9,7 @@ class fieldMap:
             this.addFC(sfc)
     def addFC(this,fc):
         this.m.addTable(fc)
-    def renameField(this,oldf,newf):
+    def renameField(this,oldF,newF):
         fIndex=this.m.findFieldMapIndex(oldF)
         fmap = this.m.getFieldMap(fIndex)
         fo=fmap.outputField
