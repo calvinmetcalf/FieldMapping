@@ -19,8 +19,7 @@ class fieldMap:
         fmap.outputField=fo
         this.m.replaceFieldMap(fIndex,fmap)
     def rmPre(this,prefix):
-        for n in range(this.m.fieldCount):
-            nom =this.m.fields[n].name
+        for nom in this.getOutFieldNames():
             if len(nom)>len(prefix) and nom[:len(prefix)] == prefix:
                 if nom[len(prefix):]=="OBJECTID":
                     this.rmField(nom)
@@ -41,8 +40,9 @@ class fieldMap:
         d=[]
         outF=this.getOutFieldNames()
         for fo in outF:
-            fi = this.getInFieldName(this,fo)
+            fi = this.getInFieldName(fo)
             d.append({"outField":fo,"inField":fi})
+        return d
     def rmField(this,field):
         index=this.m.findFieldMapIndex(field)
         this.m.removeFieldMap(index)
