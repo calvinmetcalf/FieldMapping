@@ -11,14 +11,14 @@ class fieldMap:
         this.m.addTable(fc)
     def renameField(this,oldf,newf):
         fIndex=this.m.findFieldMapIndex(oldF)
-        fmap = fm.getFieldMap(fIndex)
+        fmap = this.m.getFieldMap(fIndex)
         fo=fmap.outputField
         fo.name=newF
         fmap.outputField=fo
         this.m.replaceFieldMap(fIndex,fmap)
     def rmPre(this,prefix):
         for n in range(this.m.fieldCount):
-            nom =m.fields[n].name
+            nom =this.m.fields[n].name
             if len(nom)>len(prefix) and nom[:len(prefix)] == prefix:
                 this.renameField(nom,nom[len(prefix):])
     def getMap(this):
