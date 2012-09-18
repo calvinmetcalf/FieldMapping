@@ -9,6 +9,8 @@ class fieldMap:
             this.addFC(sfc)
     def addFC(this,fc):
         this.m.addTable(fc)
+        if this.m.findFieldMapIndex("OBJECTID")>=0:
+            this.rmField("OBJECTID")
     def renameField(this,oldF,newF):
         fIndex=this.m.findFieldMapIndex(oldF)
         fmap = this.m.getFieldMap(fIndex)
@@ -20,13 +22,18 @@ class fieldMap:
         for n in range(this.m.fieldCount):
             nom =this.m.fields[n].name
             if len(nom)>len(prefix) and nom[:len(prefix)] == prefix:
-                this.renameField(nom,nom[len(prefix):])
+                if nom[len(prefix):]=="OBJECTID":
+                    this.rmField(nom)
+                elif this.m.findFieldMapIndex(nom[len(prefix):])>=0:
+                    this.mergeFields(nom[len(prefix):],nom)
+                else:
+                    this.renameField(nom,nom[len(prefix):])
     def getMap(this):
         return this.m
     def getOutFieldNames(this):
         d=[]
         for n in range(this.m.fieldCount):
-            d.append(m.fields[n].name)
+            d.append(this.m.fields[n].name)
         return d
     def getInFieldName(this,outF,index=0):
         return this.m.getFieldMap(this.m.findFieldMapIndex(outF)).getInputFieldName(index)
