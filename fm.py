@@ -36,6 +36,9 @@ class fieldMap:
         for fo in outF:
             fi = this.getInFieldName(this,fo)
             d.append({"outField":fo,"inField":fi})
+    def rmField(this,field):
+        index=this.m.findFieldMapIndex(field)
+        this.m.removeFieldMap(index)
     def mergeFields(this,target,apendix):
         tIndex = this.m.findFieldMapIndex(target)
         aIndex = this.m.findFieldMapIndex(apendix)
